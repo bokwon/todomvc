@@ -48,7 +48,7 @@ jQuery(function ($) {
 			new Router({
 				'/:filter': function (filter) {
 					this.filter = filter;
-                    this.store();
+                    			this.store();
 					this.render();
 				}.bind(this)
 			}).init('/all');
@@ -91,7 +91,7 @@ jQuery(function ($) {
 				todo.completed = isChecked;
 			});
 
-            this.store();
+            		this.store();
 			this.render();
 		},
 		getActiveTodos: function () {
@@ -118,7 +118,7 @@ jQuery(function ($) {
 		destroyCompleted: function () {
 			this.todos = this.getActiveTodos();
 			this.filter = 'all';
-            this.store();
+            		this.store();
 			this.render();
 		},
 		// accepts an element from inside the `.item` div and
@@ -149,13 +149,13 @@ jQuery(function ($) {
 			});
 
 			$input.val('');
-            this.store();
+            		this.store();
 			this.render();
 		},
 		toggle: function (e) {
 			var i = this.indexFromEl(e.target);
 			this.todos[i].completed = !this.todos[i].completed;
-            this.store();
+            		this.store();
 			this.render();
 		},
 		edit: function (e) {
@@ -187,15 +187,15 @@ jQuery(function ($) {
 				this.todos[this.indexFromEl(el)].title = val;
 			}
 
-            this.store();
+            		this.store();
 			this.render();
 		},
-        store: function () {
-            util.store('todo-jquery', this.todos);
-        },
+		store: function () {
+		    util.store('todo-jquery', this.todos);
+		},
 		destroy: function (e) {
 			this.todos.splice(this.indexFromEl(e.target), 1);
-            this.store()
+            		this.store()
 			this.render();
 		}
 	};
